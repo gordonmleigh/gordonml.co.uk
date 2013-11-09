@@ -1,0 +1,16 @@
+extends layout
+include mixins/post
+include mixins/pager
+
+block content
+  .content.post-list
+    if heading
+      h1= heading
+    if page && page.posts.length > 0
+      ul.posts
+        each p in page.posts
+          li
+            +post(p, true)
+      +pager(page)
+    else
+      .not-found No posts found.

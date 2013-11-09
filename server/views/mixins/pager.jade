@@ -1,0 +1,6 @@
+mixin pager(page)
+  .page-navigation
+    if page.current > 1
+      a.next(href='?p='+(page.current-1)) newer
+    if page.current < page.pages
+      a.prev(href='?p='+(page.current+1)) older

@@ -1,0 +1,22 @@
+mixin post(p, summary)
+  article
+    .details
+      span.date= moment(p.attributes.date).format('Do [of] MMMM YYYY')
+      | &nbsp;in&nbsp;
+      a.category(href=categoryUrl(p.attributes.category))= p.attributes.category
+    h1: a(href=postUrl(p))= p.attributes.title
+
+    if summary
+      div!= p.summary
+
+      if p.attributes.more
+          a.more(href=postUrl(p)) Continue reading &raquo;
+    else
+      div!= p.body
+
+    div.footer
+      ul.tags
+        if p.attributes.tags
+          for t in p.attributes.tags
+            li: a(href=tagUrl(t))= t
+

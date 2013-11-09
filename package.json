@@ -1,0 +1,28 @@
+{
+  "name": "gordonml.co.uk",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-mocha-test": "~0.7.0",
+    "grunt-conventional-changelog": "~1.0.0",
+    "grunt-contrib-less": "~0.8.1",
+    "grunt-contrib-clean": "~0.5.0"
+  },
+  "dependencies": {
+    "express": "~3.4.1",
+    "moment": "~2.4.0",
+    "commander": "~2.0.0",
+    "winston": "~0.7.2",
+    "lodash": "~2.2.1",
+    "json-front-matter": "~0.1.3",
+    "glob": "~3.2.6",
+    "q": "~0.9.7",
+    "marked": "~0.2.10"
+  }
+}
