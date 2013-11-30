@@ -12,9 +12,25 @@ var path = require('path'),
     glob = q.denodeify(require('glob')),
     lodash = require('lodash'),
     moment = require('moment'),
+    hljs = require('highlight.js'),
     jsonFrontMatter = require('json-front-matter'),
     marked = require('marked'),
     moreMark = '<!-- more -->';
+
+// set up markdown parser
+marked.setOptions({
+  gfm: true,
+  highlight: function (code, lang) {
+    return hljs.highlight(lang, code).value;
+  },
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  langPrefix: 'lang-'
+});
 
 /**
  * A class for performing blog functions.
