@@ -27,7 +27,7 @@ A library that has been getting a lot of attention recently is [Mongoose](http:/
 Described as “elegant mongodb object modeling for node.js”, this project aims to bring a full-blown
 ODM to the node.js/MongoDB party.  From the homepage:
 
-```js
+```javascript
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
@@ -55,7 +55,7 @@ The only thing I don't like about it – and node in general for that matter –
 [callback hell](http://callbackhell.com/) that seems to be the default situation.  This gives rise
 to this lovely snippet from the the MongoJS tests:
 
-```js
+```javascript
 var assert = require('assert');
 var mongojs = require('../index');
 var db = mongojs('test', ['b.c']);
@@ -84,7 +84,7 @@ using callbacks, so can be used as a drop-in replacement for mongojs, making por
 application extremely easy.  Using promises, the above test can be written as follows:
 
 
-```js
+```javascript
 var assert = require('assert');
 var mongojs = require('../index');
 var db = mongojs('test', ['b.c']);
@@ -112,7 +112,9 @@ Granted, whether or not you think the new example looks any better is a matter o
 hand, we have super-nested callbacks, on the other we have a bunch of continuations, the function
 of which is not entirely obvious unless you are comfortable with promises.  Using promises does give
 you the opportunity of waiting on several things to complete, or chaining asynchronous methods
-together in a straightforward way.  Having said that, the same can be achieved using the
+together in a straightforward way.
+
+The same can be achieved using the
 [async](https://github.com/caolan/async) library: I guess it is a matter of personal taste.  One
 thing counting against promises is that errors will be lost if you forget to call `done()` at the
 end of a promise chain; however, the [Q readme](https://github.com/kriskowal/q#the-end) claims that
@@ -123,7 +125,7 @@ What I am looking forward to however, is the use of
 [with promises](https://github.com/kriskowal/q/tree/master/examples/async-generators).  Then we can
 rewrite the above test like so:
 
-```js
+```javascript
 var assert = require('assert');
 var mongojs = require('../index');
 var db = mongojs('test', ['b.c']);
@@ -149,3 +151,8 @@ I am aware of [q-mongodb](https://github.com/canned/QMongoDB), however at the ti
 hasn't been updated in a year.  Also, judging by the usage example in the readme, it requires
 promises for everything, even getting the db and the collection.  That's sure to inflate the
 continuation spaghetti.
+
+
+## Comments welcome
+
+Let me know what you think.  Tweet me at [@gordonmleigh](https://twitter.com/gordonmleigh).
